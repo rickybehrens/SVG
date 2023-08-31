@@ -31,26 +31,62 @@ function init() {
                 name: "stroke",
                 message: "Please type in the shape's border color (you can also type in the hexadecimal number)",
             },
+            {
+                type: "list",
+                name: "textPosition",
+                message: "Please select the text position:",
+                choices: ["top", "center", "bottom"],
+            },
+            {
+                type: "list",
+                name: "mirrorText",
+                message: "Do you want to mirror the text?",
+                choices: ["Yes", "No"],
+            },
         ])
-
         .then((data) => {
-            const logoContent = markdown(data);
-
-            fs.writeFile('logo.svg', logoContent, (err) => {
-                if (err) {
-                    console.error(err);
-                } else {
-                    console.log('Generated logo.svg');
-                }
-            })
+            if (data.mirrorText === "Yes") {
+                inquirer
+                    .prompt([
+                        {
+                            type: "list",
+                            name: "mirrorType",
+                            message: "Select mirror type:",
+                            choices: ["Vertical", "Horizontal"],
+                        },
+                        {
+                            type: "input",
+                            name: "mirrorOpacity",
+                            message: "Enter opacity for the mirror (0-1):",
+                        },
+                        {
+                            type: "confirm",
+                            name: "fadeMirror",
+                            message: "Do you want to include a fade for the mirror?",
+                            default: false,
+                        },
+                    ])
+                    .then((mirrorData) => {
+                        // Merge mirrorData with data to have all information in one object
+                        const mergedData = { ...data, ...mirrorData };
+                        const logoContent = markdown(mergedData);
+                        saveLogoToFile(logoContent);
+                    });
+            } else {
+                const logoContent = markdown(data);
+                saveLogoToFile(logoContent);
+            }
         });
+}
 
+function saveLogoToFile(content) {
+    fs.writeFile('logo.svg', content, (err) => {
+        if (err) {
+            console.error(err);
+        } else {
+            console.log('Generated logo.svg');
+        }
+    });
 }
 
 init();
-
-// WHEN I have entered input for all the prompts
-// THEN an SVG file is created named `logo.svg`
-// AND the output text "Generated logo.svg" is printed in the command line
-// WHEN I open the `logo.svg` file in a browser
-// THEN I am shown a 300x200 pixel image that matches the criteria I entered
