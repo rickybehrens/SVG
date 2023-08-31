@@ -23,8 +23,13 @@ function init() {
             },
             {
                 type: "input",
-                name: "text",
+                name: "fill",
                 message: "Please type in the shape's color (you can also type in the hexadecimal number)",
+            },
+            {
+                type: "input",
+                name: "stroke",
+                message: "Please type in the shape's border color (you can also type in the hexadecimal number)",
             },
         ])
 
@@ -41,6 +46,8 @@ function init() {
         });
 
 }
+
+init();
 
 // WHEN I have entered input for all the prompts
 // THEN an SVG file is created named `logo.svg`

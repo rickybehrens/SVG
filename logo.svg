@@ -1,0 +1,5 @@
+
+    <svg xmlns="http://www.w3.org/2000/svg" height="200" width="300">
+        <rect x="10" y="10" width="180" height="180" fill="lime" stroke="black" stroke-width="3" />
+        <text x="10" y="30" fill="black">RBB</text>
+    </svg>
