@@ -1,6 +1,6 @@
 const inquirer = require('inquirer');
 const fs = require('fs');
-const markdown = require('./library/generate');
+const generateLogo = require('./library/generate');
 
 function init() {
     inquirer
@@ -37,45 +37,13 @@ function init() {
                 message: "Please select the text position:",
                 choices: ["top", "center", "bottom"],
             },
-            {
-                type: "list",
-                name: "mirrorText",
-                message: "Do you want to mirror the text?",
-                choices: ["Yes", "No"],
-            },
         ])
         .then((data) => {
-            if (data.mirrorText === "Yes") {
-                inquirer
-                    .prompt([
-                        {
-                            type: "list",
-                            name: "mirrorType",
-                            message: "Select mirror type:",
-                            choices: ["Vertical", "Horizontal"],
-                        },
-                        {
-                            type: "input",
-                            name: "mirrorOpacity",
-                            message: "Enter opacity for the mirror (0-1):",
-                        },
-                        {
-                            type: "confirm",
-                            name: "fadeMirror",
-                            message: "Do you want to include a fade for the mirror?",
-                            default: false,
-                        },
-                    ])
-                    .then((mirrorData) => {
-                        // Merge mirrorData with data to have all information in one object
-                        const mergedData = { ...data, ...mirrorData };
-                        const logoContent = markdown(mergedData);
-                        saveLogoToFile(logoContent);
-                    });
-            } else {
-                const logoContent = markdown(data);
-                saveLogoToFile(logoContent);
-            }
+            const svgContent = generateLogo(data); // Generate SVG content
+            saveLogoToFile(svgContent); // Save the generated content to a file
+        })
+        .catch((error) => {
+            console.error(error);
         });
 }
 

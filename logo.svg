@@ -1,8 +1,5 @@
 
     <svg xmlns="http://www.w3.org/2000/svg" height="200" width="300">
-    <!-- Shape element (e.g., rectangle or circle) -->
-    <rect x="55" y="5" width="190" height="190" fill="pink" stroke="blue" stroke-width="3" />
-
-    <!-- Text element -->
-    <text x="150" y="100" fill="black" text-anchor="middle" transform="scale(-1, 1) translate(0, 200) scale(1, -1)" opacity="1">RBB</text>
-</svg>
+        <rect x="55" y="5" width="190" height="190" fill="DARK GREEN" stroke="YELLOW" stroke-width="3" />
+        <text x="95" y="65" fill="ORANGE" font-size="50">WRC</text>
+    </svg>
