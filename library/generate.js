@@ -16,9 +16,7 @@ function generateLogo(data) {
             shapeSVG = `<polygon points="150,200 30,10 270,10" fill="${data.fill}" stroke="${data.stroke}" stroke-width="3" />`;
             break;
         case "square":
-            shapeWidth = 190;
-            shapeHeight = 190;
-            shapeSVG = `<rect x="${(300 - shapeWidth) / 2}" y="${(200 - shapeHeight) / 2}" width="${shapeWidth}" height="${shapeHeight}" fill="${data.fill}" stroke="${data.stroke}" stroke-width="3" />`;
+            shapeSVG = `<rect x="55" y="5" width="190" height="190" fill="${data.fill}" stroke="${data.stroke}" stroke-width="3" />`;
             break;
         default:
             break;
