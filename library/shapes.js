@@ -16,29 +16,19 @@ class Polygon {
         this.width = width;
     }
 }
-const triangle = 
 
-describe('Polygon', () => {
-    // describe('square', () => {
-    //     it('should render a square', () => {
-    //         const square = new Square;
-    //         expect(data.shape).toEqual(square)
-    //     });
-    // });
+class Triangle extends Polygon {
+    constructor(numberSides, height, width, fill) {
+        super(numberSides, height, width);
+        this.fill = fill;
+    }
+}
 
-    describe('triangle', () => {
-        it('should render a triangle', () => {
-            const triangle = new Triangle();
-            expect(data.shape).toEqual('<polygon points="150,200 30,10 270,10" fill="blue" />')
-        });
-    });
+const triangle = new Triangle(
+    '[ 150,200, 30,10, 270,10]',
+    '150',
+    '150',
+    'blue',
+)
 
-    // describe('circle', () => {
-    //     it('should render a circle', () => {
-    //         const circle = new Circle;
-    //         expect(data.shape).toEqual(circle)
-    //     });
-    // });
-});
-
-module.exports = Shapes
+module.exports = Polygon

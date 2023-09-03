@@ -11,9 +11,13 @@ function generateLogo(data) {
     switch (data.shape.toLowerCase()) {
         case "circle":
             shapeSVG = `<circle cx="150" cy="100" r="75" fill="${data.fill}" stroke="${data.stroke}" stroke-width="3" />`;
+            var circleOut = [JSON.parse(shapeSVG)];
+            console.log(circleOut);
             break;
         case "triangle":
             shapeSVG = `<polygon points="150,200 30,10 270,10" fill="${data.fill}" stroke="${data.stroke}" stroke-width="3" />`;
+            var triangleOut = ['150,200', '30,10', '270,10'];
+            console.log(triangleOut);
             break;
         case "square":
             shapeSVG = `<rect x="55" y="5" width="190" height="190" fill="${data.fill}" stroke="${data.stroke}" stroke-width="3" />`;
