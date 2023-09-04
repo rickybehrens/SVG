@@ -1,3 +1,6 @@
+const {Triangle} = require('./shapes')
+
+
 function generateLogo(data) {
     const textColor = data.text || "black";
     const shapeColor = data.fill || "lime";
@@ -15,9 +18,10 @@ function generateLogo(data) {
             console.log(circleOut);
             break;
         case "triangle":
-            shapeSVG = `<polygon points="150,200 30,10 270,10" fill="${data.fill}" stroke="${data.stroke}" stroke-width="3" />`;
-            var triangleOut = ['150,200', '30,10', '270,10'];
-            console.log(triangleOut);
+            // shapeSVG = `<polygon points="150,200 30,10 270,10" fill="${data.fill}" stroke="${data.stroke}" stroke-width="3" />`;
+            // var triangleOut = ['150,200', '30,10', '270,10'];
+            // console.log(triangleOut);
+            shapeSVG = new Triangle(data.fill, data.characters, data.text)
             break;
         case "square":
             shapeSVG = `<rect x="55" y="5" width="190" height="190" fill="${data.fill}" stroke="${data.stroke}" stroke-width="3" />`;
@@ -41,7 +45,8 @@ function generateLogo(data) {
         <text x="${textXPosition}" y="${textYPosition}" fill="${textColor}" font-size="50">${data.characters}</text>
     </svg>`;
 
-    return svgContent;
+    // return svgContent;
+    return shapeSVG.render()
 }
 
 module.exports = generateLogo;

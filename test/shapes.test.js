@@ -1,6 +1,7 @@
-const Polygon = require('../library/shapes.js')
+// const Polygon = require('../library/shapes.js')
+const {Triangle} = require('../library/shapes');
 
-const triangle = new Triangle();
+// const triangle = new Triangle();
 
 describe('Polygon', () => {
     // describe('square', () => {
@@ -12,9 +13,9 @@ describe('Polygon', () => {
 
     describe('triangle', () => {
         it('should render a triangle', () => {
-            const triangle = new Triangle();
-            shape.setColor("blue");
-            expect(shape.render()).toEqual('<polygon points="150, 18 244, 182 56, 182" />');
+            const triangle = new Triangle('blue', 'RBB', 'red');
+            // shape.setColor("blue");
+            expect(triangle.render()).toEqual(`<svg xmlns="http://www.w3.org/2000/svg" height="200" width="300"><polygon points="150,200 30,10 270,10" fill="blue" /><text x="95" y="65" fill="red" font-size="50">RBB</text></svg>`);
         });
     });
 
