@@ -1,4 +1,4 @@
-const {Triangle} = require('./shapes')
+const {Circle, Triangle, Square} = require('./shapes')
 
 
 function generateLogo(data) {
@@ -13,24 +13,18 @@ function generateLogo(data) {
 
     switch (data.shape.toLowerCase()) {
         case "circle":
-            shapeSVG = `<circle cx="150" cy="100" r="75" fill="${data.fill}" stroke="${data.stroke}" stroke-width="3" />`;
-            var circleOut = [JSON.parse(shapeSVG)];
-            console.log(circleOut);
+            shapeSVG = new Circle(data.fill, data.characters, data.text, data.stroke)
             break;
         case "triangle":
-            // shapeSVG = `<polygon points="150,200 30,10 270,10" fill="${data.fill}" stroke="${data.stroke}" stroke-width="3" />`;
-            // var triangleOut = ['150,200', '30,10', '270,10'];
-            // console.log(triangleOut);
-            shapeSVG = new Triangle(data.fill, data.characters, data.text)
+            shapeSVG = new Triangle(data.fill, data.characters, data.text, data.stroke)
             break;
         case "square":
-            shapeSVG = `<rect x="55" y="5" width="190" height="190" fill="${data.fill}" stroke="${data.stroke}" stroke-width="3" />`;
+            shapeSVG = new Square(data.fill, data.characters, data.text, data.stroke)
             break;
         default:
             break;
     }
 
-    let textXPosition = 95; // Center horizontally
     let textYPosition = 65; // Default top position
 
     if (textPosition === "center") {
@@ -42,7 +36,7 @@ function generateLogo(data) {
     const svgContent = `
     <svg xmlns="http://www.w3.org/2000/svg" height="200" width="300">
         ${shapeSVG}
-        <text x="${textXPosition}" y="${textYPosition}" fill="${textColor}" font-size="50">${data.characters}</text>
+        <text x="95" y="120" fill="${textColor}" font-size="50">${data.characters}</text>
     </svg>`;
 
     // return svgContent;
