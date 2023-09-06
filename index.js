@@ -1,10 +1,14 @@
-const inquirer = require('inquirer');
-const fs = require('fs');
-const generateLogo = require('./library/generate');
+// Import required libraries and modules
+const inquirer = require('inquirer'); // For user input prompts
+const fs = require('fs'); // For file operations
+const generateLogo = require('./library/generate'); // Import the logo generation function
 
+// Function to initialize the application
 function init() {
+    // Prompt the user for input using Inquirer
     inquirer
         .prompt([
+            // Input prompts for logo customization
             {
                 type: "input",
                 name: "characters",
@@ -47,6 +51,7 @@ function init() {
         });
 }
 
+// Function to save the generated logo content to a file
 function saveLogoToFile(content) {
     fs.writeFile('logo.svg', content, (err) => {
         if (err) {
@@ -57,4 +62,5 @@ function saveLogoToFile(content) {
     });
 }
 
+// Initialize the application
 init();
