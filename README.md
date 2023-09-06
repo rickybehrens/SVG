@@ -60,9 +60,9 @@ If you have any questions about the repo, open an issue or contact me directly a
 
 ## Screenshots
 <!-- Add screenshots here -->
-<img src="./images/01.png" alt="Screenshot 1">
-<img src="./images/02.png" alt="Screenshot 2">
-<img src="./images/03.png" alt="Screenshot 3">
-<img src="./images/04.png" alt="Screenshot 4">
-<img src="./images/05.png" alt="Screenshot 5">
-<img src="./images/06.png" alt="Screenshot 6">
+<img src="./Images/01.png" alt="Screenshot 1">
+<img src="./Images/02.png" alt="Screenshot 2">
+<img src="./Images/03.png" alt="Screenshot 3">
+<img src="./Images/04.png" alt="Screenshot 4">
+<img src="./Images/05.png" alt="Screenshot 5">
+<img src="./Images/06.png" alt="Screenshot 6">
