@@ -23,7 +23,7 @@ function init() {
                 type: "list",
                 name: "shape",
                 message: "Please select which shape you'd like the logo to be:",
-                choices: ["circle", "Triangle", "Square"]
+                choices: ["Circle", "Triangle", "Square"]
             },
             {
                 type: "input",
@@ -39,7 +39,7 @@ function init() {
                 type: "list",
                 name: "textPosition",
                 message: "Please select the text position:",
-                choices: ["top", "center", "bottom"],
+                choices: ["Top", "Center", "Bottom"],
             },
         ])
         .then((data) => {
