@@ -33,7 +33,7 @@ function init() {
             {
                 type: "input",
                 name: "stroke",
-                message: "Please type in the shape's border color (you can also type in the hexadecimal number)",
+                message: "Please type in the shape's border color (you can also type in the hexadecimal number), if you do not desire a border just type in the same color as the shape",
             },
             {
                 type: "list",
